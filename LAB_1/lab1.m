@@ -108,6 +108,46 @@ clear;
 clc;
 A = [7 -8 -7 -55; 9 -5 10 19; -8 1 10 81; 9 10 0 -46; 3 10 6 8];
 % a.
+fprintf('------------------------------\n');
+fprintf('-----------Task 2.a-----------\n');
+fprintf('------------------------------\n');
 fprintf('The dimension of Im(A) is:\n');
 disp(rank(A));
 orth_A = orth(A);
+fprintf('The orthogonal basis is:\n');
+disp(orth_A);
+fprintf('The product of (orth_A)''*orth_A is:\n');
+disp((orth_A')*orth_A);
+% b.
+fprintf('------------------------------\n');
+fprintf('-----------Task 2.b-----------\n');
+fprintf('------------------------------\n');
+fprintf('The dimension of null(transpose of A) is:\n');
+disp(width(A') - rank(A'));
+
+orth_nullA = orth(null(A'));
+
+disp((orth_nullA')*orth_nullA);
+% c.
+fprintf('------------------------------\n');
+fprintf('-----------Task 2.c-----------\n');
+fprintf('------------------------------\n');
+x = [1;2;-1;0];
+new_AX = orth_A'*A*x;
+fprintf('The new coordinate would be:\n');
+disp(new_AX);
+%%
+% d.
+clear;
+clc;
+fprintf('------------------------------\n');
+fprintf('-----------Task 2.d-----------\n');
+fprintf('------------------------------\n');
+B = [7 -6 -38 1;-5 -5 -10 -10; 9 2 -10 11; -3 -1 2 -4];
+orth_basis_B = orth(B);
+null_basis_BT = orth(null(B'));
+new_basis = [orth_basis_B null_basis_BT];
+V = eye(4)\new_basis;
+new_B = V*B*inv(V);
+fprintf('The transformation with new basis:\n');
+disp(new_B);
