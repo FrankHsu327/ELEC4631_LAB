@@ -1,1 +1,2 @@
-# Continuous control system lab
+# Continuous Control System Lab (ELEC 4631)
+
